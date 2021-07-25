@@ -1,6 +1,8 @@
 <template>
 	<div id="app" @touchmove="touchMove">
-		<router-view></router-view>
+		<keep-alive exclude="Detail">
+			<router-view></router-view>
+		</keep-alive>
 		<main-tab-bar></main-tab-bar>
 	</div>
 </template>
