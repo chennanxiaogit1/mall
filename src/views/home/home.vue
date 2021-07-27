@@ -48,6 +48,7 @@
 	import Scroll from "@/components/common/scroll/Scroll";
 	import BackTop from "@/components/content/backtop/BackTop";
 	import { debounce } from "@/common/utils.js";
+	import { itemListenerMixin } from "@/common/mixins.js";
 
 	import { getHomeMultidata, getHomeGoods } from "network/home";
 	export default {
@@ -92,16 +93,20 @@
 			this.$refs.scroll.Refresh();
 		},
 		deactivated() {
+			// 1.保存Y值
 			this.saveY = this.$refs.scroll.scrollY();
-			// console.log(this.saveY);
-		},
-
-		mounted() {
-			// 监听item图片加载完成
-			this.$bus.$on("itemImageLoad", () => {
+			// 2.取消全局监听事件
+			this.$bus.$off("itemImageLoad", () => {
 				debounce(this.$refs.scroll.Refresh, 20);
 			});
 		},
+
+		mounted() {
+			// this.$bus.$on("imageLoad", () => {
+			// 	debounce(this.$refs.scroll.Refresh, 20);
+			// });
+		},
+		mixins: [itemListenerMixin],
 		computed: {
 			showGoods() {
 				return this.goods[this.currentType].list;
