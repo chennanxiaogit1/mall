@@ -72,7 +72,7 @@
 					sell: { page: 0, list: [] }
 				},
 				currentType: "pop",
-				isShowBackTop: "false",
+				isShowBackTop: false,
 				tabOffSetToP: 0,
 				isShow: false,
 				saveY: 0

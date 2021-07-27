@@ -169,8 +169,12 @@
 				obj.title = this.goods.title;
 				obj.desc = this.goods.desc;
 				obj.newPrice = this.goods.nowPrice;
-				// 3.添加到store中
-				this.$store.dispatch("addCart", obj);
+				// 3.添加到购物车中
+				this.$store.dispatch("addCart", obj).then(res => {
+					this.$toast.show(res);
+					// console.log(this.$toast.show(res));
+					// this.$refs.toast.show(res);
+				});
 			}
 		},
 		mounted() {

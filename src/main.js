@@ -3,8 +3,11 @@ import App from './App.vue'
 import router from "./router/index.js"
 import store from "./store"
 
-Vue.config.productionTip = false
+import toast from "./components/common/toast"
 
+Vue.config.productionTip = false
+//  安装插件
+Vue.use(toast)
 Vue.prototype.$bus = new Vue()
 
 new Vue({
@@ -12,3 +15,4 @@ new Vue({
   router,
   store,
 }).$mount('#app')
+
