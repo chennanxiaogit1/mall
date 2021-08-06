@@ -17,9 +17,6 @@
 			show(message, duration = 2000) {
 				this.isShow = true;
 				this.message = message;
-				console.log(this.isShow);
-				console.log(this.message);
-				console.log(this);
 				setTimeout(() => {
 					this.isShow = false;
 					this.message = "";

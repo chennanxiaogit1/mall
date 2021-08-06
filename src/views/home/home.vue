@@ -1,7 +1,8 @@
 <template>
 	<div id="home">
+		<!-- 首页导航栏 -->
 		<nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
-
+		<!-- 商品导航栏 -->
 		<tab-bar-control
 			class="tab-bar-control"
 			:title="['流行', '新款', '精选']"
@@ -101,11 +102,6 @@
 			});
 		},
 
-		mounted() {
-			// this.$bus.$on("imageLoad", () => {
-			// 	debounce(this.$refs.scroll.Refresh, 20);
-			// });
-		},
 		mixins: [itemListenerMixin],
 		computed: {
 			showGoods() {
